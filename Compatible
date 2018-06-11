@@ -1,0 +1,9 @@
+if (Build.VERSION.SDK_INT != 24) {
+    mPopupWindow.showAsDropDown(v);
+} else {//Android 7.0 显示位置出现问题 兼容7.0
+    int[] location = new int[2];
+    v.getLocationOnScreen(location);
+    int x = location[0];
+    int y = location[1];
+    mPopupWindow.showAtLocation(v, Gravity.NO_GRAVITY, 0, y + v.getHeight());
+}
